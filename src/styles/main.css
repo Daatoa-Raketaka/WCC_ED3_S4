@@ -323,6 +323,11 @@ section.hero > .left {
   /* Recipe */
   /* Chef's Recommendation */
 }
+@media screen and (max-width: 1024px) {
+  section.hero > .left {
+    padding: 20vh 50px 10vh 50px;
+  }
+}
 section.hero > .left .recipe {
   position: relative;
   width: 100%;
@@ -412,7 +417,27 @@ section.hero > .left .recipe .paiement .buy-button:hover {
 }
 section.hero > .left .recipe .pagination {
   position: relative;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
   margin-block: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25px);
+  grid-template-rows: auto;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+section.hero > .left .recipe .pagination .item {
+  position: relative;
+  width: 25px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #ccc;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+section.hero > .left .recipe .pagination .item.is-current {
+  background-color: #fddc7d;
 }
 section.hero > .left .chef-recommendation {
   position: relative;
@@ -453,6 +478,7 @@ section.hero > .left .chef-recommendation > .right {
 }
 section.hero > .left .chef-recommendation > .right .text {
   font-size: 16px;
+  color: #525151;
 }
 section.hero > .left .chef-recommendation > .right a {
   position: relative;
