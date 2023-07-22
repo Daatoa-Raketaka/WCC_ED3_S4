@@ -1,12 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/styles/main.css">
-    <title>Food</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./src/styles/main.css">
+	<title>Food</title>
 </head>
+
 <body>
-    <script src="./src/js/main.js"></script>
+
+	<!-- Navbar -->
+	<header>
+		<nav>
+			<div class="logo">
+				<h1>
+					Fode<span>.</span>
+				</h1>
+			</div>
+			<div class="right-side">
+				<div class="nav-links">
+					<div class="search-bar">
+						<input type="text" name="search" placeholder="Search ...">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+							<path fill="currentColor"
+								d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33l-1.42 1.42l-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+						</svg>
+					</div>
+					<ul>
+						<li class="why-fode">Why Fode?</li>
+						<li class="about">About</li>
+						<li class="menu">
+							Menu&nbsp;
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 1024 1024">
+								<path fill="currentColor"
+									d="M831.872 340.864L512 652.672L192.128 340.864a30.592 30.592 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.592 30.592 0 0 0-42.752 0z" />
+							</svg>
+						</li>
+					</ul>
+				</div>
+				<div class="buttons">
+					<button class="signin">Sign In</button>
+					<button class="login">Login</button>
+				</div>
+			</div>
+			<div class="burger">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+					<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+						d="M4 7h3m13 0h-9m9 10h-3M4 17h9m-9-5h16" />
+				</svg>
+			</div>
+		</nav>
+	</header>
+
+	<nav class="mobile-navbar">
+		<div class="links">
+			<p class="link-item" id="logo">
+				Fode<span>.</span>
+			</p>
+			<p class="link-item">
+				Exit
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+					<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+						d="M3 12h18m0 0l-8.5-8.5M21 12l-8.5 8.5" />
+				</svg>
+			</p>
+			<p class="link-item">
+				Why Fode?
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48">
+					<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
+						d="M17.118 26.013L9.253 12.39a1.605 1.605 0 0 0-2.896 1.36l5.52 14.918c.082.22.123.452.125.686l.057 12.672a2 2 0 0 0 2 1.991h4.957a2 2 0 0 0 1.954-2.426L18 28l-.882-1.987ZM12 29l6-1m12.564-2.271l7.69-13.322a1.625 1.625 0 0 1 2.947 1.337l-5.106 14.977a2.002 2.002 0 0 0-.105.573l-.466 12.798a2 2 0 0 1-2 1.928h-4.963a2 2 0 0 1-1.94-2.485L30 28l.334-1.665a2 2 0 0 1 .229-.606ZM30 28l6 1M15 7l3.5 4M23 4l1 6m9-4l-3 4" />
+				</svg>
+			</p>
+			<p class="link-item">
+				About
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+					<path fill="currentColor"
+						d="M12 5.51c.56 0 1.12.35 1.54 1.06l5.91 9.85c.86 1.42.2 2.58-1.45 2.58H6c-1.65 0-2.31-1.16-1.46-2.57l5.91-9.85c.43-.72.99-1.07 1.55-1.07m0-2c-1.3 0-2.48.74-3.26 2.03L2.83 15.4c-.44.74-.66 1.5-.66 2.23c0 .56.14 1.11.42 1.6C3.23 20.35 4.47 21 6 21h12c1.53 0 2.77-.65 3.41-1.77c.29-.51.43-1.07.42-1.65c-.01-.71-.23-1.46-.66-2.18l-5.91-9.85c-.78-1.3-1.96-2.04-3.26-2.04zm1.5 13.24s-.71.36-1.07.18c-.36-.18-.43-.54-.23-1.15l.41-1.22c.4-1.22-.12-2.08-1.08-2.13c-1.26-.07-2.02.83-2.02.83s.71-.36 1.07-.18c.36.18.43.54.23 1.15l-.41 1.22c-.4 1.22.12 2.07 1.08 2.13c1.26.06 2.02-.83 2.02-.83z" />
+					<circle cx="12" cy="10" r="1.3" fill="currentColor" />
+				</svg>
+			</p>
+			<p class="link-item">
+				Menu
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512">
+					<path fill="currentColor"
+						d="m445.588 56l-.026 384.352c6.881 11.323 14 15.677 19.97 15.648c5.924-.028 12.967-4.434 19.714-15.418L466.82 244.27l-.215-2.391l1.475-1.906c21.174-27.169 28.573-74.108 22.533-113.81c-3.02-19.852-9.342-37.82-18.195-50.522c-7.424-10.652-16.28-17.447-26.828-19.641h-.002zm-372.375.004l-.016 67.127l-12.56-.016V56.008H46.332l.002 67.11H33.756v-67.11h-14.57v103.228c-.001 11.417 6.23 17.748 16.04 21.662l4.06 1.622l-.09 4.37c-2 84.57-3.977 169.139-5.962 253.708C40.074 451.79 47.1 456.028 52.95 456c5.85-.028 12.87-4.377 19.623-15.432c-2.315-84.547-4.63-169.096-6.941-253.644l-.12-4.4l4.073-1.606c10.324-4.106 17.039-11.074 17.039-21.676V56.004h-13.41zM256 95A161 161 0 0 0 95 256a161 161 0 0 0 161 161a161 161 0 0 0 161-161A161 161 0 0 0 256 95z" />
+				</svg>
+			</p>
+		</div>
+		<div class="buttons">
+			<button class="signin">Sign In</button>
+			<button class="login">Login</button>
+		</div>
+	</nav>
+
+	<script src="./src/js/main.js"></script>
 </body>
+
 </html>
