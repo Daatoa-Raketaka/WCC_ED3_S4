@@ -20,6 +20,10 @@ section.hero {
     height: max-content;
     padding: 20vh 0 10vh max(100px, 10vw);
 
+    @media screen and (max-width: 1024px) {
+      padding: 20vh 50px 10vh 50px;
+    }
+
     /* Recipe */
     .recipe {
       position: relative;
@@ -111,7 +115,27 @@ section.hero {
 
       .pagination {
         position: relative;
+        width: 100%;
+        height: max-content;
         margin-block: 25px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 25px);
+        grid-template-rows: auto;
+        column-gap: 10px;
+
+        .item {
+          position: relative;
+          width: 25px;
+          height: 3px;
+          border-radius: 3px;
+          background-color: $light-grey;
+          transition: all .3s ease-in-out;
+          cursor: pointer;
+
+          &.is-current {
+            background-color: $yellow;
+          }
+        }
       }
     }
 
@@ -149,6 +173,7 @@ section.hero {
 
         .text {
           font-size: 16px;
+          color: $grey;
         }
 
         a {
