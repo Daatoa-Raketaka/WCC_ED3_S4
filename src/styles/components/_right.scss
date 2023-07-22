@@ -1,0 +1,82 @@
+$angle: -45deg;
+
+body { overflow: hidden; }
+
+#bg {
+    position: absolute;
+    top: -10px;
+    left: calc(50% + 100px);
+    background-blend-mode: normal;
+    background: $grey url(../img/filigrane.svg);
+    background-size: 50%;
+    width: calc(1.5 * 100vh);
+    height: calc(1.5 * 100vh);
+    border-radius: 150px;
+    transition: all 1s;
+    transform: rotateZ($angle);
+    z-index: -1;
+}
+
+div.slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    transition: all 1s cubic-bezier(0.165, 0.44, 0.44, 1);
+    transform-origin: 100% 50%;
+    animation-name: enter-top;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    div.img {
+        background-image: url(../img/italian_pasta.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 30vw;
+        height: 30vw;
+        position: relative;
+    
+        img.float {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+    
+            &:nth-child(1) { top: 0; left: 0; }
+            &:nth-child(2) { top: 80%; left: 10%; }
+            &:nth-child(3) { top: 10%; left: 80%; }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body { overflow: visible; }
+
+    #bg {
+        position: inherit;
+        transform: none;
+        width: 100vw;
+        border-radius: 100px 100px 0px 0px;
+    }
+
+    div.slide {
+        justify-content: center;
+
+        div.img {
+            width: 300px;
+            height: 300px;
+
+            img.float {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+
+@keyframes enter-top {
+    from { transform: rotateZ(90deg); opacity: 0; }
+    to { transform: rotateZ(0deg); opacity: 1; }
+}
