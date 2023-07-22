@@ -6,12 +6,12 @@ const img = slide.querySelector('div.img')
 
 const imgs = [
     '../img/italian_pasta.png',
-    '../img/calzone.png',
     '../img/carbonara.png',
-    '../img/lasagna.png',
-    '../img/mexico_pizza.png',
     '../img/ramen.png',
-    '../img/tuna_salad.png',
+    '../img/calzone.png',
+    /* '../img/lasagna.png',
+    '../img/mexico_pizza.png',
+    '../img/tuna_salad.png', */
 ]
 
 let count = 0
