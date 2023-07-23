@@ -820,8 +820,12 @@ div.slide div.img img.float:nth-child(3) {
   width: 100%;
   height: -moz-max-content;
   height: max-content;
-  padding: 15px 20px;
+  padding: 5vh 20px;
   color: #ccc;
+  background: #1b1a1a url(../img/filigrane.svg);
+  background-position: center;
+  background-size: cover;
+  margin-top: -1px;
 }
 #discount-coupon > .container {
   position: relative;
@@ -922,6 +926,11 @@ div.slide div.img img.float:nth-child(3) {
 #discount-coupon > .container > .body > .right > .prices {
   margin-right: 15px;
 }
+@media screen and (max-width: 550px) {
+  #discount-coupon > .container > .body > .right > .prices {
+    display: none;
+  }
+}
 #discount-coupon > .container > .body > .right > .prices .little {
   font-size: 14px;
   color: #fddc7d;
@@ -957,6 +966,7 @@ div.slide div.img img.float:nth-child(3) {
     right: 50px;
     width: -moz-max-content;
     width: max-content;
+    background: none;
   }
   #discount-coupon > .container {
     box-shadow: 0px 5px 20px black;

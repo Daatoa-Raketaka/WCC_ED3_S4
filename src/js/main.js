@@ -143,3 +143,50 @@ chef.addEventListener('mouseout', () => {
     iterations: Infinity
   }
 ) */
+
+/* Table kely */
+let currentDicountMenu = 0
+const discountFood = document.querySelector('#discount-coupon>.container>.body>.left>.content>.food-name')
+const discountImg = document.querySelector('#discount-coupon>.container>.body>.left>img')
+const discountCalories = document.querySelector('#discount-coupon>.container>.body>.left>.content>.calories>span')
+const prevDiscount = document.querySelector('#discount-coupon>.container>.header>.buttons>.prev')
+const nextDiscount = document.querySelector('#discount-coupon>.container>.header>.buttons>.next')
+const discountMenus = [
+  {
+    name: 'Mexicoo Pizza',
+    imgSrc: './src/img/mexico_pizza.png',
+    calories: 78
+  },
+  {
+    name: 'Tuna Salad',
+    imgSrc: './src/img/tuna_salad.png',
+    calories: 57
+  },
+  {
+    name: 'Lasagna',
+    imgSrc: './src/img/lasagna.png',
+    calories: 95
+  }
+]
+
+function setDiscountFood(foodIndex) {
+  discountFood.innerHTML = `${discountMenus[foodIndex].name}`
+  discountImg.setAttribute('src', discountMenus[foodIndex].imgSrc)
+  discountImg.setAttribute('alt', discountMenus[foodIndex].name)
+  discountCalories.innerHTML = `${discountMenus[foodIndex].calories} Calories`
+}
+
+// Init discount foods
+setDiscountFood(currentDicountMenu)
+
+prevDiscount.addEventListener('click', () => {
+  if (currentDicountMenu > 0) {
+    setDiscountFood(--currentDicountMenu)
+  }
+})
+
+nextDiscount.addEventListener('click', () => {
+  if (currentDicountMenu < discountMenus.length - 1) {
+    setDiscountFood(++currentDicountMenu)
+  }
+})
