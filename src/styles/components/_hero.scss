@@ -1,5 +1,61 @@
 @import "../partials/flex";
 
+#gribouille-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-image: url(../img/gribouille-1.svg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#top-left-gradient {
+  @keyframes scaling {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+  }
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  background-color: transparentize($color: $yellow, $amount: .2);
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+  z-index: 0;
+  animation: scaling 2s ease-in-out infinite;
+}
+
+#top-left-dots {
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  z-index: 0;
+  width: 100px;
+  height: 100px;
+}
+
+#bottom-left-leaves {
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-image: url(../img/leaf.webp);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotateZ(calc(180deg - 45deg));
+  z-index: 0;
+  filter: blur(1.5px);
+  -webkit-filter: blur(1.5px);
+}
+
 section.hero {
   position: relative;
   width: 100vw;
@@ -20,10 +76,27 @@ section.hero {
     min-height: 100vh;
     width: 100%;
     height: max-content;
-    padding: 20vh 0 10vh max(100px, 10vw);
+    padding: 20vh 0 0vh max(100px, 10vw);
 
     @media screen and (max-width: 1024px) {
       padding: 20vh 50px 10vh 50px;
+    }
+
+    #fode-right {
+      @keyframes fade-in {
+        0% { opacity: 0; transform: rotateZ(-90deg) translateX(100px) translateY(150px); }
+        100% { opacity: 1; transform: rotateZ(-90deg) translateX(150px) translateY(150px); }
+      }
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: rotateZ(-90deg) translateX(150px) translateY(150px);
+      animation: fade-in 1s ease-out 1;
+      display: none;
+
+      @media screen and (max-width: 768px) {
+        display: inherit;
+      }
     }
 
     /* Recipe */
@@ -31,6 +104,7 @@ section.hero {
       position: relative;
       width: 100%;
       height: max-content;
+      backdrop-filter: blur(3px);
 
       .title {
         font-size: 40px;
@@ -172,6 +246,14 @@ section.hero {
         width: 100%;
         height: max-content;
         font-family: "Rubik", sans-serif;
+
+        @media screen and (max-width: 1024px) {
+          backdrop-filter: blur(5px);
+          background-color: $white;
+          padding: 10px 12px;
+          border-radius: 5px;
+          box-shadow: 0px 5px 30px transparentize($color: $black, $amount: .9);
+        }
 
         .text {
           font-size: 16px;

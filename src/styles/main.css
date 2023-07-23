@@ -300,6 +300,68 @@ header nav .burger {
   color: #fff;
 }
 
+#gribouille-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-image: url(../img/gribouille-1.svg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#top-left-gradient {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(253, 220, 125, 0.8);
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+  z-index: 0;
+  animation: scaling 2s ease-in-out infinite;
+}
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#top-left-dots {
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  z-index: 0;
+  width: 100px;
+  height: 100px;
+}
+
+#bottom-left-leaves {
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-image: url(../img/leaf.webp);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotateZ(135deg);
+  z-index: 0;
+  filter: blur(1.5px);
+  -webkit-filter: blur(1.5px);
+}
+
 section.hero {
   position: relative;
   width: 100vw;
@@ -321,7 +383,7 @@ section.hero > .left {
   width: 100%;
   height: -moz-max-content;
   height: max-content;
-  padding: 20vh 0 10vh max(100px, 10vw);
+  padding: 20vh 0 0vh max(100px, 10vw);
   /* Recipe */
   /* Chef's Recommendation */
 }
@@ -330,11 +392,36 @@ section.hero > .left {
     padding: 20vh 50px 10vh 50px;
   }
 }
+section.hero > .left #fode-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: rotateZ(-90deg) translateX(150px) translateY(150px);
+  animation: fade-in 1s ease-out 1;
+  display: none;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-90deg) translateX(100px) translateY(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(-90deg) translateX(150px) translateY(150px);
+  }
+}
+@media screen and (max-width: 768px) {
+  section.hero > .left #fode-right {
+    display: inherit;
+  }
+}
 section.hero > .left .recipe {
   position: relative;
   width: 100%;
   height: -moz-max-content;
   height: max-content;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
 }
 section.hero > .left .recipe .title {
   font-size: 40px;
@@ -477,6 +564,16 @@ section.hero > .left .chef-recommendation > .right {
   height: -moz-max-content;
   height: max-content;
   font-family: "Rubik", sans-serif;
+}
+@media screen and (max-width: 1024px) {
+  section.hero > .left .chef-recommendation > .right {
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    background-color: #fff;
+    padding: 10px 12px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 30px rgba(27, 26, 26, 0.1);
+  }
 }
 section.hero > .left .chef-recommendation > .right .text {
   font-size: 16px;
