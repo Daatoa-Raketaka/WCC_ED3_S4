@@ -5,10 +5,10 @@ const slide = document.querySelector('.slide')
 const img = slide.querySelector('div.img')
 
 const imgs = [
-    '../img/italian_pasta.png',
-    '../img/carbonara.png',
-    '../img/ramen.png',
-    '../img/calzone.png',
+    './src/img/italian_pasta.png',
+    './src/img/carbonara.png',
+    './src/img/ramen.png',
+    './src/img/calzone.png',
     /* '../img/lasagna.png',
     '../img/mexico_pizza.png',
     '../img/tuna_salad.png', */
@@ -46,19 +46,32 @@ const enter = (imgURL) => {
 
 const changeImg = () => {
     let animation = isNext ? enterBottom(true) : enterTop(true)
-    animation.addEventListener('finish', () => enter(`./assets/${(Math.abs(count) % imgs.length) + 1}.png`))
+    animation.addEventListener('finish', () => enter(`${imgs[Math.abs(count) % imgs.length]}`))
+    bgAnimation(isNext ? -135 : 45)
 }
 
-const rotateBg = () => bg.style.transform = `rotateZ(${(-count * 90) - 45}deg)`
+const bgAnimation = (to) => bg.animate([
+    { transform: 'rotateZ(-45deg)' },
+    { transform: `rotateZ(${to}deg)` }
+], {
+    duration: 1000,
+    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
+})
 
 const animate = (next) => {
     if (!isAnimate) {
-        if (next) count++
-        else count--
+        count += next ? 1 : -1
         isNext = next
         isAnimate = true
         changeImg()
-        rotateBg()
+    }
+}
+
+const changeFood = (index) => {
+    if (index !== count) {
+        isNext = index > count
+        count = index
+        changeImg()
     }
 }
 

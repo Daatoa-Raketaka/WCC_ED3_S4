@@ -87,13 +87,16 @@ for (let i = 0; i < foods.length; i++) {
 
 recipe.querySelectorAll('.pagination .item').forEach((item, i) => {
   item.addEventListener('click', () => {
-    for (let j = 0; j < foods.length; j++) {
-      recipe.querySelectorAll('.pagination .item')[j].classList.remove('is-current')
+    if (currentRecipe !== i) {
+      for (let j = 0; j < foods.length; j++) {
+        recipe.querySelectorAll('.pagination .item')[j].classList.remove('is-current')
+      }
+      currentRecipe = i
+      setFoodDescription(i)
+      animateFoodDescription()
+      changeFood(i)
+      item.classList.add('is-current')
     }
-    currentRecipe = i
-    setFoodDescription(i)
-    animateFoodDescription()
-    item.classList.add('is-current')
   })
 })
 
