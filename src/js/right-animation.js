@@ -11,7 +11,7 @@ let normalDeg, targetDeg, currentCount = 0
 const detectScreen = () => {
     if (window.innerWidth < 768) {
         normalDeg = 0
-        targetDeg = 45       
+        targetDeg = 45
     }
     else {
         normalDeg = -45
