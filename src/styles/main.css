@@ -767,7 +767,8 @@ div.slide div.img img.float:nth-child(3) {
     overflow: visible;
   }
   .hero > div.right {
-    height: 100vh;
+    height: -moz-max-content;
+    height: max-content;
     position: relative;
     overflow: hidden;
     border-radius: 100px 100px 0px 0px;
