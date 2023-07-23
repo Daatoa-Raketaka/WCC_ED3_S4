@@ -28,6 +28,17 @@ body {
   min-height: 100vh;
 }
 
+@keyframes buy-button {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 /* Components */
 header {
   position: absolute;
@@ -356,7 +367,8 @@ header nav .burger {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  transform: rotateZ(135deg);
+  transition: all 0.3s ease-out;
+  transform: rotateZ(135deg) translate(var(--tx), var(--ty));
   z-index: 0;
   filter: blur(1.5px);
   -webkit-filter: blur(1.5px);
@@ -489,6 +501,7 @@ section.hero > .left .recipe .paiement .buy-button {
   box-shadow: 3px 5px 5px rgba(82, 81, 81, 0.5);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  animation: buy-button 2s linear infinite;
 }
 section.hero > .left .recipe .paiement .buy-button svg {
   margin-right: 10px;
@@ -510,22 +523,21 @@ section.hero > .left .recipe .pagination {
   height: -moz-max-content;
   height: max-content;
   margin-block: 25px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 25px);
-  grid-template-rows: auto;
+  display: flex;
   -moz-column-gap: 10px;
        column-gap: 10px;
 }
 section.hero > .left .recipe .pagination .item {
   position: relative;
-  width: 25px;
-  height: 3px;
+  width: 10px;
+  height: 5px;
   border-radius: 3px;
   background-color: #ccc;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 section.hero > .left .recipe .pagination .item.is-current {
+  width: 30px;
   background-color: #fddc7d;
 }
 section.hero > .left .chef-recommendation {
@@ -551,12 +563,16 @@ section.hero > .left .chef-recommendation > .left {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease-out;
+  transform: translate(var(--tx), var(--ty));
 }
 section.hero > .left .chef-recommendation > .left > img {
   position: relative;
   top: -15px;
   width: 110px;
   height: 110px;
+  transition: all 0.3s ease-out;
+  transform: translate(var(--tx), var(--ty));
 }
 section.hero > .left .chef-recommendation > .right {
   position: relative;
@@ -606,9 +622,6 @@ body {
   position: absolute;
   top: -10px;
   left: calc(50% + 100px);
-  background-blend-mode: normal;
-  background: #1b1a1a url(../img/filigrane.svg);
-  background-size: 50%;
   width: 150vh;
   height: 150vh;
   border-radius: 150px;
@@ -620,6 +633,7 @@ body {
 #bg div {
   width: 100%;
   height: 100%;
+  transform: none;
   background-blend-mode: normal;
   background: #1b1a1a url(../img/filigrane.svg);
   background-size: 50%;
@@ -687,18 +701,21 @@ div.slide div.img img.float:nth-child(3) {
   .hero > div.right {
     height: 100vh;
     position: relative;
+    overflow: hidden;
+    border-radius: 100px 100px 0px 0px;
   }
   #bg {
+    top: 100px;
     left: 0;
     bottom: 0;
     transform: none;
     width: 100vw;
-    height: 100%;
-    border-radius: 100px 100px 0px 0px;
+    height: 100vw;
   }
   div.slide {
     align-items: flex-start;
     justify-content: center;
+    transform-origin: 50% 100%;
   }
   div.slide div.img {
     width: 300px;

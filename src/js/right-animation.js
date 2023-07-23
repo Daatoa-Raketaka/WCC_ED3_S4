@@ -4,14 +4,27 @@ const bg = document.getElementById('bg')
 const slide = document.querySelector('.slide')
 const img = slide.querySelector('div.img')
 
+let normalDeg, targetDeg
+
+// Detect the Screen width
+const detectScreen = () => {
+    if (window.innerWidth < 768) {
+        normalDeg = 0
+        targetDeg = 45
+    }
+    else {
+        normalDeg = -45
+        targetDeg = 0
+    }
+}
+detectScreen()
+window.addEventListener('resize', detectScreen)
+
 const imgs = [
     './src/img/italian_pasta.png',
     './src/img/carbonara.png',
     './src/img/ramen.png',
     './src/img/calzone.png',
-    /* '../img/lasagna.png',
-    '../img/mexico_pizza.png',
-    '../img/tuna_salad.png', */
 ]
 
 let count = 0
@@ -47,11 +60,11 @@ const enter = (imgURL) => {
 const changeImg = () => {
     let animation = isNext ? enterBottom(true) : enterTop(true)
     animation.addEventListener('finish', () => enter(`${imgs[Math.abs(count) % imgs.length]}`))
-    bgAnimation(isNext ? -135 : 45)
+    bgAnimation(isNext ? -135 + targetDeg : 45 + targetDeg)
 }
 
 const bgAnimation = (to) => bg.animate([
-    { transform: 'rotateZ(-45deg)' },
+    { transform: `rotateZ(${normalDeg}deg)` },
     { transform: `rotateZ(${to}deg)` }
 ], {
     duration: 1000,
@@ -81,10 +94,11 @@ const changeFood = (index) => {
 
 /*** Follow Mouse ***/
 
-const elements = document.querySelectorAll('[data-dr-mouse]')
+const leaves = document.querySelectorAll('[data-dr-leaf]')
+const mouseTargets = document.querySelectorAll('[data-dr-mouse]')
 
 // Initialize the scale of the floating leaves
-elements.forEach((el, i) => {
+leaves.forEach((el, i) => {
     const scale = i + 1 === 1 ? .8 : (i + 1 === 2 ? 1.1 : .6)
 
     el.style.setProperty('--scale-float', `${scale}`)
@@ -98,11 +112,17 @@ window.addEventListener('mousemove', (ev) => {
         y: ev.clientY - (window.innerHeight / 2),
     }
 
-    elements.forEach((el, i) => {
-        const offset = parseFloat(el.getAttribute('data-dr-mouse'))
+    leaves.forEach((el, i) => {
+        const offset = parseFloat(el.getAttribute('data-dr-leaf'))
         const scale = i + 1 === 1 ? .8 : (i + 1 === 2 ? 1.1 : .6)
 
         el.style.setProperty('--scale-float', `${scale}`)
+        el.style.setProperty('--tx', `${mouse.x * offset}%`)
+        el.style.setProperty('--ty', `${mouse.y * offset}%`)
+    })
+
+    mouseTargets.forEach((el) => {
+        const offset = parseFloat(el.getAttribute('data-dr-mouse'))
         el.style.setProperty('--tx', `${mouse.x * offset}%`)
         el.style.setProperty('--ty', `${mouse.y * offset}%`)
     })
