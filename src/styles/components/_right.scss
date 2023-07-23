@@ -70,7 +70,7 @@ div.slide {
     body { overflow: visible; }
 
     .hero > div.right {
-        height: 100vh;
+        height: max-content;
         position: relative;
         overflow: hidden;
         border-radius: 100px 100px 0px 0px;
