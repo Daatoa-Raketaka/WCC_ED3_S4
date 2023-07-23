@@ -811,6 +811,7 @@ div.slide div.img {
   height: 30vw;
   position: relative;
   border-radius: 50%;
+  animation: img-anim 15s linear infinite;
 }
 @media screen and (max-width: 1024px) {
   div.slide div.img {
@@ -873,6 +874,41 @@ div.slide div.img img.float:nth-child(3) {
   div.slide div.img img.float {
     width: 50px;
     height: 50px;
+  }
+}
+@keyframes img-anim {
+  0% {
+    transform: rotateZ(0deg) translate(0px, 0px);
+  }
+  18% {
+    transform: rotateZ(-45deg) translate(8px, 18px);
+  }
+  20% {
+    transform: rotateZ(-50deg) translate(10px, 20px);
+  }
+  38% {
+    transform: rotateZ(15deg) translate(2px, -18px);
+  }
+  40% {
+    transform: rotateZ(20deg) translate(0px, -20px);
+  }
+  55% {
+    transform: rotateZ(-5deg) translate(5px, -18px);
+  }
+  60% {
+    transform: rotateZ(-10deg) translate(7px, 0px);
+  }
+  75% {
+    transform: rotateZ(45deg) translate(-5px, 5px);
+  }
+  80% {
+    transform: rotateZ(50deg) translate(-10px, 8px);
+  }
+  95% {
+    transform: rotateZ(5deg) translate(-2px, 2px);
+  }
+  100% {
+    transform: rotateZ(0deg) translate(0px, 0px);
   }
 }
 @keyframes enter-top {
