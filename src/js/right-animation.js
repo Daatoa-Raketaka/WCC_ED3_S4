@@ -69,15 +69,28 @@ const animate = (next) => {
 /*** Follow Mouse ***/
 
 const elements = document.querySelectorAll('[data-dr-mouse]')
+
+// Initialize the scale of the floating leaves
+elements.forEach((el, i) => {
+    const scale = i + 1 === 1 ? .8 : (i + 1 === 2 ? 1.1 : .6)
+
+    el.style.setProperty('--scale-float', `${scale}`)
+    el.style.setProperty('--tx', '0')
+    el.style.setProperty('--ty', '0')
+})
+
 window.addEventListener('mousemove', (ev) => {
     const mouse = {
         x: ev.clientX - (window.innerWidth / 2),
         y: ev.clientY - (window.innerHeight / 2),
     }
 
-    elements.forEach(el => {
+    elements.forEach((el, i) => {
         const offset = parseFloat(el.getAttribute('data-dr-mouse'))
+        const scale = i + 1 === 1 ? .8 : (i + 1 === 2 ? 1.1 : .6)
 
-        el.style.transform = `translate(${mouse.x * offset}%, ${mouse.y * offset}%)`
+        el.style.setProperty('--scale-float', `${scale}`)
+        el.style.setProperty('--tx', `${mouse.x * offset}%`)
+        el.style.setProperty('--ty', `${mouse.y * offset}%`)
     })
 })
