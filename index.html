@@ -269,8 +269,9 @@
 				<div></div>
 			</div>
 		</div>
+		
 		<div id="discount-coupon">
-			<div class="container">
+			<div class="container" data-dr-mouse="0.005">
 				<div class="header">
 					<p class="title">Discount coupon</p>
 					<div class="buttons">
@@ -292,10 +293,10 @@
 				</div>
 				<div class="body">
 					<div class="left">
-						<img>
+						<div class="hidden"><img id="discount-coupon-img"></div>
 						<div class="content">
-							<p class="food-name"></p>
-							<p class="calories">
+							<div class="hidden"><p class="food-name" id="discount-coupon-food"></p></div>
+							<p class="calories hidden">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
 									<g fill="none">
 										<path fill="#FF6723"
@@ -310,8 +311,12 @@
 					</div>
 					<div class="right">
 						<div class="prices">
-							<p class="little">$7.90</p>
-							<p class="great">$7.90</p>
+							<div class="hidden">
+								<p class="little">$7.90</p>
+							</div>
+							<div class="hidden">
+								<p class="great">$7.90</p>
+							</div>
 						</div>
 						<button class="time">
 							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16">

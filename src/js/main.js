@@ -168,47 +168,95 @@ chef.addEventListener('mouseout', () => {
 
 /* Table kely */
 let currentDicountMenu = 0
-const discountFood = document.querySelector('#discount-coupon>.container>.body>.left>.content>.food-name')
-const discountImg = document.querySelector('#discount-coupon>.container>.body>.left>img')
+const discountFood = document.querySelector('#discount-coupon>.container>.body>.left>.content>.hidden>.food-name')
+const discountImg = document.querySelector('#discount-coupon>.container>.body>.left>.hidden>img')
 const discountCalories = document.querySelector('#discount-coupon>.container>.body>.left>.content>.calories>span')
+const discountPrices = document.querySelectorAll('#discount-coupon .prices p')
 const prevDiscount = document.querySelector('#discount-coupon>.container>.header>.buttons>.prev')
 const nextDiscount = document.querySelector('#discount-coupon>.container>.header>.buttons>.next')
 const discountMenus = [
   {
     name: 'Mexicoo Pizza',
     imgSrc: './src/img/mexico_pizza.png',
-    calories: 78
+    calories: 78,
+    price: '$7.90'
   },
   {
     name: 'Tuna Salad',
     imgSrc: './src/img/tuna_salad.png',
-    calories: 57
+    calories: 57,
+    price: '$5.50'
   },
   {
     name: 'Lasagna',
     imgSrc: './src/img/lasagna.png',
-    calories: 95
+    calories: 95,
+    price: '$6.00'
   }
 ]
 
+
+function leaveDiscountAnimation() {
+  discountFood.animate([
+    { transform: 'translateY(0%)' },
+    { transform: 'translateY(-100%)' }
+  ], { duration: 500, easing: 'ease-in' })
+
+  discountImg.animate([
+    { transform: 'translateX(0%) rotateZ(0deg)' },
+    { transform: 'translateX(-100%) rotateZ(-180deg)' },
+  ], { duration: 500, easing: 'ease-in' })
+
+  discountPrices.forEach(p => p.animate(
+    [{ transform: 'translateY(0%)' }, { transform: 'translateY(-100%)' }],
+    { duration: 500, easing: 'ease-in' }
+  ))
+
+  return discountCalories.animate([
+    { transform: 'translateY(0%)' },
+    { transform: 'translateY(100%)' }
+  ], { duration: 500, easing: 'ease-in' })
+}
+
+function enterDiscountAnimation() {
+  discountFood.animate([
+    { transform: 'translateY(100%)' },
+    { transform: 'translateY(0%)' }
+  ], { duration: 500, easing: 'ease-out' })
+
+  discountImg.animate([
+    { transform: 'translateX(100%) rotateZ(180deg)' },
+    { transform: 'translateX(0%) rotateZ(0deg)' },
+  ], { duration: 500, easing: 'ease-out' })
+
+  discountPrices.forEach(p => p.animate(
+    [{ transform: 'translateY(100%)' }, { transform: 'translateY(0%)' }],
+    { duration: 500, easing: 'ease-out' }
+  ))
+
+  discountCalories.animate([
+    { transform: 'translateY(-100%)' },
+    { transform: 'translateY(0%)' }
+  ], { duration: 500, easing: 'ease-out' })
+}
+
 function setDiscountFood(foodIndex) {
-  discountFood.innerHTML = `${discountMenus[foodIndex].name}`
-  discountImg.setAttribute('src', discountMenus[foodIndex].imgSrc)
-  discountImg.setAttribute('alt', discountMenus[foodIndex].name)
-  discountCalories.innerHTML = `${discountMenus[foodIndex].calories} Calories`
+  foodIndex = foodIndex % 3
+  leaveDiscountAnimation()
+    .addEventListener('finish', () => {
+      discountFood.innerHTML = `${discountMenus[foodIndex].name}`
+      discountImg.setAttribute('src', discountMenus[foodIndex].imgSrc)
+      discountImg.setAttribute('alt', discountMenus[foodIndex].name)
+      discountCalories.innerHTML = `${discountMenus[foodIndex].calories} Calories`
+      discountPrices.forEach(p => p.innerHTML = discountMenus[foodIndex].price)
+
+      enterDiscountAnimation()
+    })
 }
 
 // Init discount foods
 setDiscountFood(currentDicountMenu)
 
-prevDiscount.addEventListener('click', () => {
-  if (currentDicountMenu > 0) {
-    setDiscountFood(--currentDicountMenu)
-  }
-})
+prevDiscount.addEventListener('click', () => { setDiscountFood(--currentDicountMenu) })
 
-nextDiscount.addEventListener('click', () => {
-  if (currentDicountMenu < discountMenus.length - 1) {
-    setDiscountFood(++currentDicountMenu)
-  }
-})
+nextDiscount.addEventListener('click', () => { setDiscountFood(++currentDicountMenu) })
