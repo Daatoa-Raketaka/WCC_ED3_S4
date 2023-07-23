@@ -155,7 +155,7 @@ header nav .right-side .nav-links ul li::before {
   transition: all 0.3s ease-in-out;
 }
 header nav .right-side .nav-links ul li:hover, header nav .right-side .nav-links ul li.active {
-  color: #1b1a1a;
+  color: #525151;
   transform: translateY(3px);
 }
 header nav .right-side .nav-links ul li:hover::before, header nav .right-side .nav-links ul li.active::before {
@@ -508,7 +508,7 @@ body {
   top: -10px;
   left: calc(50% + 100px);
   background-blend-mode: normal;
-  background: #525151 url(../img/filigrane.svg);
+  background: #1b1a1a url(../img/filigrane.svg);
   background-size: 50%;
   width: 150vh;
   height: 150vh;
