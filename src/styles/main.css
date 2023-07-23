@@ -621,7 +621,7 @@ body {
   width: 100%;
   height: 100%;
   background-blend-mode: normal;
-  background: #525151 url(../img/filigrane.svg);
+  background: #1b1a1a url(../img/filigrane.svg);
   background-size: 50%;
 }
 
@@ -642,7 +642,7 @@ div.slide div.img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  filter: drop-shadow(-10px -10px 8px #525151);
+  filter: drop-shadow(-10px -10px 20px rgba(27, 26, 26, 0.7));
   max-width: 400px;
   max-height: 400px;
   width: 30vw;
@@ -660,7 +660,7 @@ div.slide div.img img.float {
   width: 100px;
   height: 100px;
   position: absolute;
-  filter: blur(2px) drop-shadow(inset 0px 0px 50px red);
+  filter: blur(2px);
   -webkit-filter: blur(2px);
   transition: all 0.3s ease-out;
 }
