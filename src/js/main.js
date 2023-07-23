@@ -101,11 +101,11 @@ recipe.querySelectorAll('.pagination .item').forEach((item, i) => {
 })
 
 /* Chef animation floating */
-document.querySelector('.hero>.left>.chef-recommendation>.left>img').animate(
+/* document.querySelector('.hero>.left>.chef-recommendation>.left>img').animate(
   [{ transform: 'translateY(-5px)' }, { transform: 'translateY(0)' }, { transform: 'translateY(-5px)' }],
   {
     duration: 1500,
     easing: 'ease-in-out',
     iterations: Infinity
   }
-)
+) */
