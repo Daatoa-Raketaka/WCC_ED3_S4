@@ -676,7 +676,7 @@ div.slide div.img img.float:nth-child(2) {
 }
 div.slide div.img img.float:nth-child(3) {
   top: 10%;
-  left: 80%;
+  left: 70%;
   transform: scale(var(--scale-float, 0.6)) translate(var(--tx), var(--ty));
 }
 
