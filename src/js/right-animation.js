@@ -1,21 +1,23 @@
 const prev = document.getElementById('prev')
 const next = document.getElementById('next')
 const bg = document.getElementById('bg')
+const bgImg = bg.querySelector('div')
 const slide = document.querySelector('.slide')
 const img = slide.querySelector('div.img')
 
-let normalDeg, targetDeg
+let normalDeg, targetDeg, currentCount = 0
 
 // Detect the Screen width
 const detectScreen = () => {
     if (window.innerWidth < 768) {
         normalDeg = 0
-        targetDeg = 45
+        targetDeg = 45       
     }
     else {
         normalDeg = -45
         targetDeg = 0
     }
+    bg.style.transform = `rotateZ(${(currentCount * 90) + normalDeg}deg)`
 }
 detectScreen()
 window.addEventListener('resize', detectScreen)
@@ -59,17 +61,10 @@ const enter = (imgURL) => {
 
 const changeImg = () => {
     let animation = isNext ? enterBottom(true) : enterTop(true)
+    currentCount += isNext ? -1 : 1
     animation.addEventListener('finish', () => enter(`${imgs[Math.abs(count) % imgs.length]}`))
-    bgAnimation(isNext ? -135 + targetDeg : 45 + targetDeg)
+    bg.style.transform = `rotateZ(${(currentCount * 90) + normalDeg}deg)`
 }
-
-const bgAnimation = (to) => bg.animate([
-    { transform: `rotateZ(${normalDeg}deg)` },
-    { transform: `rotateZ(${to}deg)` }
-], {
-    duration: 1000,
-    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
-})
 
 const animate = (next) => {
     if (!isAnimate) {
