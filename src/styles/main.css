@@ -64,6 +64,60 @@ body {
   }
 }
 /* Components */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000000000;
+  background-color: #0d0d0d;
+  display: flex;
+}
+
+.loaded div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: transparent;
+}
+.loaded div::before, .loaded div::after {
+  content: "";
+  position: absolute;
+  height: 62%;
+  width: 100%;
+  background-color: #0d0d0d;
+}
+.loaded div::before {
+  border-radius: 0px 0px 100px 100px;
+  animation: loaded 1s ease-in-out;
+}
+.loaded div::after {
+  bottom: 0;
+  border-radius: 100px 100px 0px 0px;
+  animation: loaded 1s ease-in-out;
+}
+.loaded div:nth-child(1)::before, .loaded div:nth-child(1)::after, .loaded div:nth-child(9)::before, .loaded div:nth-child(9)::after {
+  animation-delay: 0.5s;
+}
+.loaded div:nth-child(2)::before, .loaded div:nth-child(2)::after, .loaded div:nth-child(8)::before, .loaded div:nth-child(8)::after {
+  animation-delay: 0.4s;
+}
+.loaded div:nth-child(3)::before, .loaded div:nth-child(3)::after, .loaded div:nth-child(7)::before, .loaded div:nth-child(7)::after {
+  animation-delay: 0.3s;
+}
+.loaded div:nth-child(4)::before, .loaded div:nth-child(4)::after, .loaded div:nth-child(6)::before, .loaded div:nth-child(6)::after {
+  animation-delay: 0.2s;
+}
+
+@keyframes loaded {
+  from {
+    height: 62%;
+  }
+  to {
+    height: 0%;
+  }
+}
 header {
   position: absolute;
   top: 0;

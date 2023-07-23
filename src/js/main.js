@@ -11,6 +11,28 @@ mobileNavbar.querySelectorAll('.buttons button').forEach(button => {
   button.addEventListener('click', () => mobileNavbar.classList.remove('active'))
 })
 
+/* Loader */
+window.addEventListener('load', () => {
+  const overlay = document.querySelector('.overlay')
+  overlay.classList.add('loaded')
+  overlay.style.backgroundColor = 'transparent'
+
+  const onEnd = (ev) => {
+    const target = ev.target
+    target.style.opacity = '0'
+    target.removeEventListener('animationend', onEnd)
+  }
+  document.querySelectorAll('.loaded div').forEach(value => value.addEventListener('animationend', onEnd))
+
+  const onLoadedAnimationEnd = (ev) => {
+    const target = ev.target
+    overlay.style.display = 'none'
+    target.removeEventListener('animationend', onLoadedAnimationEnd)
+  }
+  document.querySelector('.loaded div:nth-child(1)')?.addEventListener('animationend', onLoadedAnimationEnd)
+})
+
+
 /* Food descriptions */
 let currentRecipe = 0
 const recipe = document.querySelector('.hero>.left>.recipe')
@@ -49,7 +71,7 @@ function setFoodDescription(foodIndex = 0) {
 // Animate the food description and recipe
 function animateFoodDescription() {
   title.animate(
-    [{ transform: 'translateY(100%)' }, { transform: 'translateY(0)' }],
+    [{ transform: 'translateY(100%) skewX(-50deg)' }, { transform: 'translateY(0) skewX(0deg)' }],
     {
       duration: 1000,
       easing: 'ease-out',
@@ -73,7 +95,7 @@ function animateFoodDescription() {
 
 function foodLeave() {
   title.animate(
-    [{ transform: 'translateY(0%)' }, { transform: 'translateY(-100%)' }],
+    [{ transform: 'translateY(0%) skewX(0deg)' }, { transform: 'translateY(-100%) skewX(50deg)' }],
     {
       duration: 500,
       easing: 'ease-in-out',
