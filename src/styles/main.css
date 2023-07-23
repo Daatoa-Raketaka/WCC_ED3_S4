@@ -401,6 +401,22 @@ header nav .burger {
   background-repeat: no-repeat;
   background-size: cover;
 }
+#gribouille-1 svg {
+  position: absolute;
+}
+#gribouille-1 svg * path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 4s ease-out forwards infinite;
+  stroke: #fddc7d;
+  stroke-width: 1px;
+  filter: blur(1px);
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
 #top-left-gradient {
   position: absolute;
