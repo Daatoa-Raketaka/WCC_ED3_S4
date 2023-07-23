@@ -6,6 +6,16 @@
     padding: 0;
 }
 
+*::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: $yellow;
+}
+
 a {
     text-decoration: none;
     color: inherit;

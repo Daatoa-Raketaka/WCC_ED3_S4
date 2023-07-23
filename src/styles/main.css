@@ -16,6 +16,16 @@
   padding: 0;
 }
 
+*::-webkit-scrollbar {
+  display: block;
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #fddc7d;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -803,5 +813,152 @@ div.slide div.img img.float:nth-child(3) {
   to {
     transform: rotateZ(0deg);
     opacity: 1;
+  }
+}
+#discount-coupon {
+  position: relative;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 15px 20px;
+  color: #ccc;
+}
+#discount-coupon > .container {
+  position: relative;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  border-radius: 15px;
+  border: 2px dashed #525151;
+  font-family: "Rubik", sans-serif;
+  background-color: #1b1a1a;
+  box-shadow: 0px 5px 20px rgba(27, 26, 26, 0.4);
+}
+#discount-coupon > .container > .header {
+  position: relative;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#discount-coupon > .container > .header > .title {
+  font-size: 16px;
+  color: #ccc;
+}
+#discount-coupon > .container > .header > .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#discount-coupon > .container > .header > .buttons button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #525151;
+  margin-inline: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+#discount-coupon > .container > .header > .buttons button:hover {
+  color: #ccc;
+}
+#discount-coupon > .container > .body {
+  position: relative;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 25px 20px;
+  border-top: 2px dashed #525151;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: auto;
+}
+#discount-coupon > .container > .body > .left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 25px;
+}
+#discount-coupon > .container > .body > .left img {
+  width: 50px;
+  height: 50px;
+}
+#discount-coupon > .container > .body > .left > .content {
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
+  margin-left: 10px;
+}
+#discount-coupon > .container > .body > .left > .content > .food-name {
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 22px;
+}
+#discount-coupon > .container > .body > .left > .content > .calories {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #525151;
+}
+#discount-coupon > .container > .body > .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+#discount-coupon > .container > .body > .right > .prices {
+  margin-right: 15px;
+}
+#discount-coupon > .container > .body > .right > .prices .little {
+  font-size: 14px;
+  color: #fddc7d;
+}
+#discount-coupon > .container > .body > .right > .prices .great {
+  font-size: 18px;
+}
+#discount-coupon > .container > .body > .right button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border: none;
+  padding: 8px 20px;
+  background-color: #fddc7d;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 3px 4px 5px rgba(82, 81, 81, 0.4);
+}
+#discount-coupon > .container > .body > .right button svg {
+  margin-right: 10px;
+}
+#discount-coupon > .container > .body > .right button:hover {
+  box-shadow: 3px 4px 5px transparent;
+}
+
+@media screen and (min-width: 768px) {
+  #discount-coupon {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  #discount-coupon > .container {
+    box-shadow: 0px 5px 20px black;
   }
 }/*# sourceMappingURL=main.css.map */

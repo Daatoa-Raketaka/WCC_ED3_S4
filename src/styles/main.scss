@@ -1,9 +1,10 @@
 @import "./partials/fonts";
-@import "./partials/reset";
 @import "./partials/colors";
+@import "./partials/reset";
 @import "./partials/animation";
 
 /* Components */
 @import "./components/navbar";
 @import "./components/hero";
 @import "./components/right";
+@import "./components/discount-coupon";
