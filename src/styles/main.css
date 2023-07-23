@@ -307,10 +307,12 @@ section.hero {
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: auto;
+  overflow: hidden;
 }
 @media screen and (max-width: 768px) {
   section.hero {
     display: inherit;
+    overflow: visible;
   }
 }
 section.hero > .left {
@@ -516,6 +518,14 @@ body {
   transition: all 1s;
   transform: rotateZ(-45deg);
   z-index: -1;
+  overflow: hidden;
+}
+#bg div {
+  width: 100%;
+  height: 100%;
+  background-blend-mode: normal;
+  background: #525151 url(../img/filigrane.svg);
+  background-size: 50%;
 }
 
 div.slide {
@@ -535,6 +545,7 @@ div.slide div.img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  filter: drop-shadow(-10px -10px 8px #525151);
   max-width: 400px;
   max-height: 400px;
   width: 30vw;
