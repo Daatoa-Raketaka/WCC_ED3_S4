@@ -39,6 +39,7 @@ div.slide {
         width: 30vw;
         height: 30vw;
         position: relative;
+        border-radius: 50%;
 
         @media screen and (max-width: 1024px) {
             width: 300px;
@@ -49,10 +50,13 @@ div.slide {
             width: 100px;
             height: 100px;
             position: absolute;
+            filter: blur(2px) drop-shadow(inset 0px 0px 50px red);
+            -webkit-filter: blur(2px);
+            transition: all .3s ease-out;
     
-            &:nth-child(1) { top: 0; left: 0; }
-            &:nth-child(2) { top: 80%; left: 10%; }
-            &:nth-child(3) { top: 10%; left: 80%; }
+            &:nth-child(1) { top: 0; left: 0; transform: scale(var(--scale-float, .8)) translate(var(--tx), var(--ty)); }
+            &:nth-child(2) { top: 80%; left: 10%; transform: scale(var(--scale-float, 1.1)) translate(var(--tx), var(--ty)); }
+            &:nth-child(3) { top: 10%; left: 80%; transform: scale(var(--scale-float, .6)) translate(var(--tx), var(--ty)); }
         }
     }
 }
