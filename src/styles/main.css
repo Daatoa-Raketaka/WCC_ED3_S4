@@ -155,7 +155,7 @@ header nav .right-side .nav-links ul li::before {
   transition: all 0.3s ease-in-out;
 }
 header nav .right-side .nav-links ul li:hover, header nav .right-side .nav-links ul li.active {
-  color: #1b1a1a;
+  color: #525151;
   transform: translateY(3px);
 }
 header nav .right-side .nav-links ul li:hover::before, header nav .right-side .nav-links ul li.active::before {
@@ -509,6 +509,9 @@ body {
   position: absolute;
   top: -10px;
   left: calc(50% + 100px);
+  background-blend-mode: normal;
+  background: #1b1a1a url(../img/filigrane.svg);
+  background-size: 50%;
   width: 150vh;
   height: 150vh;
   border-radius: 150px;
@@ -548,6 +551,7 @@ div.slide div.img {
   width: 30vw;
   height: 30vw;
   position: relative;
+  border-radius: 50%;
 }
 @media screen and (max-width: 1024px) {
   div.slide div.img {
@@ -559,19 +563,24 @@ div.slide div.img img.float {
   width: 100px;
   height: 100px;
   position: absolute;
-  filter: none;
+  filter: blur(2px) drop-shadow(inset 0px 0px 50px red);
+  -webkit-filter: blur(2px);
+  transition: all 0.3s ease-out;
 }
 div.slide div.img img.float:nth-child(1) {
   top: 0;
   left: 0;
+  transform: scale(var(--scale-float, 0.8)) translate(var(--tx), var(--ty));
 }
 div.slide div.img img.float:nth-child(2) {
   top: 80%;
   left: 10%;
+  transform: scale(var(--scale-float, 1.1)) translate(var(--tx), var(--ty));
 }
 div.slide div.img img.float:nth-child(3) {
   top: 10%;
   left: 80%;
+  transform: scale(var(--scale-float, 0.6)) translate(var(--tx), var(--ty));
 }
 
 @media screen and (max-width: 768px) {
