@@ -3,4 +3,4 @@
 - Food navigation OK.
 - Discount navigation OK
 
-[Live demo]([https://da](https://daatoa-raketaka-fode.netlify.app/)https://daatoa-raketaka-fode.netlify.app/)
+[Live demo](https://daatoa-raketaka-fode.netlify.app/)
