@@ -123,6 +123,17 @@ recipe.querySelectorAll('.pagination .item').forEach((item, i) => {
   })
 })
 
+const chef = document.querySelector('#chef-link')
+const chefBg = document.querySelector('#chef-background')
+
+chef.addEventListener('mouseover', () => {
+  chefBg.classList.add('hover')
+})
+
+chef.addEventListener('mouseout', () => {
+  chefBg.classList.remove('hover')
+})
+
 /* Chef animation floating */
 /* document.querySelector('.hero>.left>.chef-recommendation>.left>img').animate(
   [{ transform: 'translateY(-5px)' }, { transform: 'translateY(0)' }, { transform: 'translateY(-5px)' }],
