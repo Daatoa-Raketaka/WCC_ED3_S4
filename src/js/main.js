@@ -49,29 +49,50 @@ function setFoodDescription(foodIndex = 0) {
 // Animate the food description and recipe
 function animateFoodDescription() {
   title.animate(
-    [{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'translateY(0)' }],
+    [{ transform: 'translateY(100%)' }, { transform: 'translateY(0)' }],
     {
-      duration: 500,
+      duration: 1000,
       easing: 'ease-out',
-      iterations: 1
     }
   )
   description.animate(
-    [{ opacity: 0, transform: 'translateX(-20px)' }, { opacity: 1, transform: 'translateX(0)' }],
+    [{ transform: 'translateX(-100%)' }, { transform: 'translateX(0)' }],
     {
-      duration: 1000,
-      easing: 'ease-in',
-      iterations: 1
+      duration: 1500,
+      easing: 'ease-out',
     }
   )
   pricesP.forEach(p => p.animate(
-    [{ opacity: 0, transform: 'translateX(20px)' }, { opacity: 1, transform: 'translateX(0)' }],
+    [{ transform: 'translateY(100%)' }, { transform: 'translateY(0)' }],
     {
       duration: 1500,
-      easing: 'ease-in-out',
-      iterations: 1
+      easing: 'ease-out',
     }
   ))
+}
+
+function foodLeave() {
+  title.animate(
+    [{ transform: 'translateY(0%)' }, { transform: 'translateY(-100%)' }],
+    {
+      duration: 500,
+      easing: 'ease-in-out',
+    }
+  )
+  pricesP.forEach(p => p.animate(
+    [{ transform: 'translateY(0%)' }, { transform: 'translateY(-100%)' }],
+    {
+      duration: 500,
+      easing: 'ease-in-out',
+    }
+  ))
+  return description.animate(
+    [{ transform: 'translateX(0%)' }, { transform: 'translateX(100%)' }],
+    {
+      duration: 500,
+      easing: 'ease-out',
+    }
+  )
 }
 
 setFoodDescription(0)
@@ -92,8 +113,10 @@ recipe.querySelectorAll('.pagination .item').forEach((item, i) => {
         recipe.querySelectorAll('.pagination .item')[j].classList.remove('is-current')
       }
       currentRecipe = i
-      setFoodDescription(i)
-      animateFoodDescription()
+      foodLeave().addEventListener('finish', () => {
+        setFoodDescription(i)
+        animateFoodDescription()
+      })
       changeFood(i)
       item.classList.add('is-current')
     }
